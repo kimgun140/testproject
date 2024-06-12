@@ -9,11 +9,12 @@
     <Grid>
         <Button Content="close" Margin="652,150,10,162" Click="Button_Click"/>
         <Button Content="search" HorizontalAlignment="Left" Margin="592,104,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <ScrollViewer x:Name="scroll_view" MaxHeight="350"  
-              Width="200" 
+        <ScrollViewer x:Name="scroll_view" MaxHeight="350" 
               HorizontalScrollBarVisibility="Disabled"
-              VerticalScrollBarVisibility="Auto" Margin="10,0,590,0">
-            <TextBlock x:Name="search_view" Height="397" Width="200" Margin="29,13,0,0" TextWrapping="Wrap" Text="sadfsadf" />
+              VerticalScrollBarVisibility="Auto" Margin="278,51,322,-51">
+            <TextBlock x:Name="search_view" Height="Auto" Width="200" TextWrapping="Wrap" Text="test" HorizontalAlignment="Left" VerticalAlignment="Top"  />
         </ScrollViewer>
+        <TextBox x:Name="aa" TextWrapping="Wrap" Text="TextBox" Margin="280,10,306,389" TextChanged="TextBox_TextChanged"/>
+
     </Grid>
 </Window>

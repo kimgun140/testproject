@@ -150,14 +150,14 @@ namespace testproject
 
         //static readonly HttpClient client = new HttpClient();
 
-        public async Task<Realtimeposition> www()
+        public async Task<Realtimeposition> www(string keyword)
         {
 
             //서울시 지하철 실시간 열차 위치정보 (json으로 파싱한거) https://www.data.go.kr/data/15058569/openapi.do
             string url = "http://swopenapi.seoul.go.kr/api/subway/65724277537568763738636a587a61/json/realtimePosition/";
-            url += "0/";
-            url += "1/";
-            url += "1호선";
+            url += "0/"; // 몇번째 부터 뽑을건지 
+            url += "1/"; // 몇개까지 뽑을 건지
+            url += keyword; // 
             // API에 HTTP GET 요청을 보내고 응답을 받음
             HttpResponseMessage response = await client.GetAsync(url);
 
@@ -228,9 +228,9 @@ namespace testproject
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        {      string bb = aa.Text;
             Realtimeposition realtimeposition1 = new Realtimeposition();
-            realtimeposition1 =  await  www();
+            realtimeposition1 =  await  www(bb);
             search_view.Text += realtimeposition1.row[0].rowNum+ "\n";
             search_view.Text += realtimeposition1.row[0].totalcount + "\n";
             search_view.Text += realtimeposition1.row[0].subwayId + "\n";
@@ -250,6 +250,11 @@ namespace testproject
 
 
             //scroll_view
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
     }
