@@ -12,32 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
-using System.Threading;
-using System.Net;
-using System.Net.Http;
+
 namespace testproject
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Page2.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Page2 : Page
     {
-        public MainWindow()
+        public Page2()
         {
             InitializeComponent();
-
-
-
-        }
-
-        public void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            //NavigationService.Navigate(
-            //            new Uri("/Window1.xaml", UriKind.Relative));
-          
-        
         }
     }
 }

@@ -6,12 +6,8 @@
         xmlns:local="clr-namespace:testproject"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Width="800" Height="450" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="204" Margin="0,96,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="204" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"/>
-        <Label Content="Label" Width="458" Height="257" Margin="186,38,156,155" Background="#00000000" BorderBrush="Black" BorderThickness="1"/>
 
-
-
-    </Grid>
+    <Frame Source="/Page1.xaml"></Frame>
+   
+    
 </Window>

@@ -116,33 +116,6 @@ namespace ConsoleApp1
 {
     class Program
     {
-        //class aaaaa
-        //{
-        //    public string realtimeposition { get; set; }
-        //    public result result { get; set; }
-        //    public Row row { get; set; }
-        //}
-        //class result
-        //{
-        //    public string code { get; set; }
-        //    public string developermessage { get; set; }
-        //    public string link { get; set; }
-
-        //    public string message { get; set; }
-        //    public int total { get; set; }
-        //}
-        //class Row
-        //{
-        //   public int rownum { get; set; }
-        //    public int selectedcount { get; set; }
-        //    public int totalcount { get; set; }
-        //    public int subwayid { get; set; }
-        //    public string subwaynm { get; set; }
-        //    public string statnid { get; set; }
-
-        //}
-
-
 
         public class Realtimeposition
         {
@@ -162,22 +135,22 @@ namespace ConsoleApp1
 
         public class Row
         {
-            public int rownum { get; set; } // 몇번째 줄인지
-            public int selectedcount { get; set; } //몇개 출력할건지
+            public int rowNum { get; set; } // 몇번째 줄인지
+            public int selectedCount { get; set; } //몇개 출력할건지
             public int totalcount { get; set; } // 현재 운행중인 열차 수 
             public int subwayId { get; set; }// 지하철 호선 id 
-            public string subwaynm { get; set; } // 지하철호선명
-            public int statnid { get; set; }// 지하철역 id 
-            public string statnnm { get; set; } // 지하철역명
-            public int trainno { get; set; } // 열차번호
-            public int lastrecptndt { get; set; } // 최종수신날짜 
+            public string subwayNm { get; set; } // 지하철호선명
+            public int statnId { get; set; }// 지하철역 id 
+            public string statnNm { get; set; } // 지하철역명
+            public int trainNo { get; set; } // 열차번호
+            public int lastRecptnDt { get; set; } // 최종수신날짜 
             public string recptnDt { get; set; } // 최종수신 시간
-            public int updnline { get; set; }// 상하행선구분
-            public int statntid { get; set; }// 종착지하철역id
-            public string statntnm { get; set; } // 종착 지하철역명
-            public int trainsttus { get; set; }//   열차 상태 구분  0진입 1도착 2출발 3전역출발
-            public int directat { get; set; }// 급행여부
-            public int lstcarat { get; set; }// 막차여부 
+            public int updnLine { get; set; }// 상하행선구분
+            public int statnTid { get; set; }// 종착지하철역id
+            public string statnTnm { get; set; } // 종착 지하철역명
+            public int trainSttus { get; set; }//   열차 상태 구분  0진입 1도착 2출발 3전역출발
+            public int directAt { get; set; }// 급행여부
+            public int lstcarAt { get; set; }// 막차여부 
         }
 
 
@@ -186,12 +159,13 @@ namespace ConsoleApp1
 
         static readonly HttpClient client = new HttpClient();
 
-        static async Task Main(string[] args)
+        public async Task<Realtimeposition> www()
         {
+
             //서울시 지하철 실시간 열차 위치정보 (json으로 파싱한거) https://www.data.go.kr/data/15058569/openapi.do
             string url = "http://swopenapi.seoul.go.kr/api/subway/65724277537568763738636a587a61/json/realtimePosition/";
             url += "0/";
-            url += "100/";
+            url += "1/";
             url += "1호선";
             // API에 HTTP GET 요청을 보내고 응답을 받음
             HttpResponseMessage response = await client.GetAsync(url);
@@ -199,6 +173,15 @@ namespace ConsoleApp1
             // 응답이 성공적인지 확인
             if (response.IsSuccessStatusCode)
             {
+
+
+
+                //var options = new JsonSerializerOptions
+                //{
+                //    PropertyNameCaseInsensitive = true
+                //};
+
+
                 // JSON 형식의 응답 데이터를 문자열로 읽어옴
                 string jsonString = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(response.GetType());
@@ -212,37 +195,39 @@ namespace ConsoleApp1
                 Realtimeposition realtimeposition = new Realtimeposition();
                 realtimeposition.row = new List<Row>();
                 Row rowasdf = new Row();
-                //realtimeposition = JsonSerializer.Deserialize<Realtimeposition>(jsonString);
+               
+                //realtimeposition = JsonSerializer.Deserialize<Realtimeposition>(jsonString, options); 왜안됨
                 foreach (JObject item in realtimePositionList)
                 {
                     //row.rownum  = (int)item["rownum"];
                     //row.selectedcount = (int)item["selectedcount"];
-                    //rowasdf.recptndt = (string)item["recptnDt"];
-                    //rowasdf.subwayid = (int)item["subwayId"];
-                    //rowasdf.subwaynm = (string)item["subwayNm"];
-                    //rowasdf.
-                    //realtimeposition.row.Add(rowasdf);
+                    rowasdf.rowNum = (int)item["rowNum"];
+                    rowasdf.selectedCount = (int)item["selectedCount"];
+                    rowasdf.totalcount = (int)item["totalcount"];
+                    rowasdf.subwayId = (int)item["subwayId"];
+                    rowasdf.subwayNm = (string)item["subwayNm"];
+                    rowasdf.trainNo = (int)item["trainNo"];
+                    rowasdf.lastRecptnDt = (int)item["lastRecptnDt"];
+                    rowasdf.recptnDt = (string)item["recptnDt"];
+                    rowasdf.updnLine = (int)item["updnLine"];
+                    rowasdf.statnTid = (int)item["statnTid "];
+                    rowasdf.statnTnm = (string)item["statnTnm"];
+                    rowasdf.trainSttus = (int)item["trainSttus"];
+                    rowasdf.directAt = (int)item["directAt"];
+                    rowasdf.lstcarAt = (int)item["lstcarAt"];
 
+                    realtimeposition.row.Add(rowasdf);
 
-
-
-                    //Console.WriteLine(item["recptnDt"]);
-                    //Row row = new Row();
-                    //Console.WriteLine(item["lstcarAt"].Type);
-                    //row.recptndt = (string)item["lstcarAt"];
-                    //Console.WriteLine(row.recptndt);
                 }
-                Console.WriteLine(realtimeposition.row[0].recptnDt);
-                Console.WriteLine(realtimeposition.row[0].subwayId);
-                //Console.WriteLine(realtimeposition.row[0].subwaynm);
-
-                //Console.WriteLine(realtimeposition.row[2].recptndt);
+                return realtimeposition;
 
             }
             else
             {
                 // 응답이 실패한 경우 오류 메시지 출력
                 Console.WriteLine("Failed to retrieve subway position data.");
+                return null;
+
             }
         }
     }
