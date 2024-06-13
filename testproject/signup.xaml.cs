@@ -33,10 +33,11 @@ namespace testproject
             {
                 List<string> aaaa = new List<string>();
                 byte[] data;
-
+                
                 TcpClient client = new TcpClient("10.10.21.111", 5556); //연결객체
                 NetworkStream stream = client.GetStream(); //데이터 전송에 사용된 스트림
-                //string message = "Hello from test";
+                                                           //string message = "Hello from test";
+                
 
                 string send_msg;
                 //data = Encoding.ASCII.GetBytes(aaaa[0]);
@@ -120,6 +121,16 @@ namespace testproject
             }
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            //TextBox myTextBox = FindName("MyTextBox") as TextBox;
+            //if (!string.IsNullOrEmpty(myTextBox.Text))
+            //{
+            //    zz.Text = myTextBox.Text;
+            //}
+
+        }
+
+        private void ContentPresenter_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
 
         }

@@ -10,17 +10,24 @@
 
     <Page.Resources>
         <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="#09aa5c" ></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Content" Value="Login" ></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Template">
                 <Setter.Value >
                     <ControlTemplate TargetType="Button" >
-                        <Border Background="{TemplateBinding Background}"  CornerRadius="3"></Border>
+                        <Border Background="{TemplateBinding Background}"   BorderThickness="2" BorderBrush="Black"  CornerRadius="3">
+                            <ContentPresenter  HorizontalAlignment="Center"  VerticalAlignment="Center" Content="LogIn"/>
+                        </Border>
+         
                     </ControlTemplate>
-
+                    
                 </Setter.Value>
             </Setter>
-            <Setter Property="Background" Value="#09aa5c"></Setter>
-            <!--<Setter Property="Button" Value="Login"></Setter>-->
-            <Setter Property="Content" Value="Login"></Setter>
+
+            <!--<Setter Property="Corner" Value="3"></Setter>-->
+            
         </Style>
         <Style x:Key="BoxStyle1" TargetType="Label">
             <Setter Property="Template">
@@ -36,32 +43,53 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border CornerRadius="3" BorderThickness="0.5" BorderBrush="Black" Background="#fff"    ></Border>
+                        <Border CornerRadius="3" BorderThickness="0.5" BorderBrush="Black" Background="#fff"    >
+                            
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <!--<Setter Property="Text" Value="123"></Setter>-->
         </Style>
-        <Style x:Key="textStyle2" TargetType="TextBox">
+        <!--<Style x:Key="textStyle2" TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border CornerRadius="3" BorderThickness="0.5" BorderBrush="Black" Background="#fff"    ></Border>
+                        <Border CornerRadius="3" BorderThickness="0.5" BorderBrush="Black" Background="#fff"    >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="pw">
+                                
+                            </ContentPresenter>
+                            --><!--<ContentPresenter "></ContentPresenter>--><!--
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+        <Style  x:Key="textStyle2" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="2" BorderThickness="1" BorderBrush="Black" Background="#fff">
+                            <TextBox x:Name="MyTextBox" Text="pw" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0"/>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Page.Resources>
 
 
 
     <Grid Width="800" Height="450" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFF">
         <TextBox TextWrapping="Wrap" Text="ID" Width="204" Margin="0,96,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48" Style="{StaticResource textStyle1}" Panel.ZIndex="1"/>
-        <TextBox TextWrapping="Wrap" Text="PW" Width="204" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle1}" Panel.ZIndex="1"/>
+        <TextBox TextWrapping="Wrap"  Text="PW" Width="204" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle2}" Panel.ZIndex="1"/>
         <Label Content="" Width="458" Height="257" Margin="171,44,171,149"  Style="{StaticResource BoxStyle1}"/>
-        <Button x:Name="btn_login" Style="{StaticResource ButtonStyle1}" Width="204" Height="52" Margin="298,234,298,164" Click="btn_login_Click" />
+        <Button x:Name="btn_login" Style="{StaticResource ButtonStyle1}" Width="204" Height="52" Margin="298,234,298,164" Click="btn_login_Click"  />
         <Image Height="100" Margin="172,350,172,0" Source="/Resources/p06020100_03.gif" RenderTransformOrigin="0.505,0.693">
         </Image>
         <Label Content="회원가입" Margin="358,60,358,359"/>
-      
+        <TextBox x:Name="zz" TextWrapping="Wrap" Text="TextBox" Margin="31,116,644,278"/>
+
     </Grid>
 </Page>
