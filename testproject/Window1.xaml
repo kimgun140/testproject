@@ -12,9 +12,9 @@
         <ScrollViewer x:Name="scroll_view" MaxHeight="350" 
               HorizontalScrollBarVisibility="Disabled"
               VerticalScrollBarVisibility="Auto" Margin="278,51,322,-51">
-            <TextBlock x:Name="search_view" Height="Auto" Width="200" TextWrapping="Wrap" Text="test" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            <TextBlock x:Name="search_view" Height="Auto" Width="200" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Top"  />
         </ScrollViewer>
-        <TextBox x:Name="aa" TextWrapping="Wrap" Text="TextBox" Margin="280,10,306,389" TextChanged="TextBox_TextChanged"/>
+        <TextBox  x:Name="aa" TextWrapping="Wrap" Text="" Margin="280,10,306,389" TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </Window>

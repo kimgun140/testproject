@@ -128,7 +128,7 @@ namespace testproject
         {
             public int rowNum { get; set; } // 몇번째 줄인지
             public int selectedCount { get; set; } //몇개 출력할건지
-            public int totalcount { get; set; } // 현재 운행중인 열차 수 
+            public int totalCount { get; set; } // 현재 운행중인 열차 수 
             public int subwayId { get; set; }// 지하철 호선 id 
             public string subwayNm { get; set; } // 지하철호선명
             public int statnId { get; set; }// 지하철역 id 
@@ -175,10 +175,10 @@ namespace testproject
 
                 // JSON 형식의 응답 데이터를 문자열로 읽어옴
                 string jsonString = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(response.GetType());
+                //Console.WriteLine(response.GetType());
                 // 문자열로 읽어온 JSON 데이터를 JObject로 파싱
                 JObject jObject = JObject.Parse(jsonString);
-                Console.WriteLine(jObject.GetType());
+                //Console.WriteLine(jObject.GetType());
                 //Console.WriteLine(jObject["realtimePositionList"]); //다뽑기
 
                 // 파싱된 데이터에서 recptnDt 필드 값만 추출하여 출력
@@ -194,7 +194,7 @@ namespace testproject
                     //row.selectedcount = (int)item["selectedcount"];
                     rowasdf.rowNum = (int)item["rowNum"];
                     rowasdf.selectedCount = (int)item["selectedCount"];
-                    //rowasdf.totalcount = (int)item["totalcount"];
+                    rowasdf.totalCount = (int)item["totalCount"];
                     rowasdf.subwayId = (int)item["subwayId"];
                     rowasdf.subwayNm = (string)item["subwayNm"];
                     rowasdf.trainNo = (int)item["trainNo"];
@@ -225,25 +225,31 @@ namespace testproject
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {      string bb = aa.Text;
+        public async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+         
+
+            string bb;
+            bb =aa.Text;
+           
             Realtimeposition realtimeposition1 = new Realtimeposition();
             realtimeposition1 =  await  www(bb);
-            search_view.Text += realtimeposition1.row[0].rowNum+ "\n";
-            search_view.Text += realtimeposition1.row[0].totalcount + "\n";
-            search_view.Text += realtimeposition1.row[0].subwayId + "\n";
-            search_view.Text += realtimeposition1.row[0].statnNm + "\n";
-            search_view.Text += realtimeposition1.row[0].trainNo + "\n";
-            search_view.Text += realtimeposition1.row[0].lastRecptnDt + "\n";
-            search_view.Text += realtimeposition1.row[0].recptnDt + "\n";
-            search_view.Text += realtimeposition1.row[0].updnLine + "\n";
-            search_view.Text += realtimeposition1.row[0].statnTid + "\n";
-            search_view.Text += realtimeposition1.row[0].statnTnm + "\n";
-            search_view.Text += realtimeposition1.row[0].trainSttus + "\n";
-            search_view.Text += realtimeposition1.row[0].directAt + "\n";
-            search_view.Text += realtimeposition1.row[0].lstcarAt + "\n";
+            search_view.Text += realtimeposition1.row[0].rowNum+ "번"+"\n";
+            search_view.Text += "현재 운행중인 열차: "+realtimeposition1.row[0].totalCount  +"\n";
+            search_view.Text += "지하철 호선 아이디: " + realtimeposition1.row[0].subwayId + "\n";
+            search_view.Text += "지하철 호선 명: "+ realtimeposition1.row[0].statnNm + "\n";
+            search_view.Text += "지하철역 아이디: "+ realtimeposition1.row[0].trainNo + "\n";
+            search_view.Text += "최종수신 날짜: " + realtimeposition1.row[0].lastRecptnDt + "\n";
+            search_view.Text += "최종수신 시간: "+ realtimeposition1.row[0].recptnDt + "\n";
+            search_view.Text += "상하행선 구분: " + realtimeposition1.row[0].updnLine + "\n";
+            search_view.Text += "종착역id" + realtimeposition1.row[0].statnTid + "\n";
+            search_view.Text += "종착역이름: " + realtimeposition1.row[0].statnTnm + "\n";
+            search_view.Text += "열차상태: " + realtimeposition1.row[0].trainSttus + "\n";
+            search_view.Text += "급행여부:  " +realtimeposition1.row[0].directAt + "\n";
+            search_view.Text += "막차여부: "+realtimeposition1.row[0].lstcarAt + "\n";
 
 
 
