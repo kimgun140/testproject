@@ -138,10 +138,10 @@ namespace testproject
         {
             if (e.Key == Key.Enter)
             {
-                //string send_message = txtbox_send1.Text;
+                string send_message = txtbox_send1.Text;
                 persnal_chat();
-                //txtbox_send1.Clear();
-                //txtbox_chat1.ScrollToEnd();
+                txtbox_send1.Clear();
+                txtbox_chat1.ScrollToEnd();
             }
         }
 
