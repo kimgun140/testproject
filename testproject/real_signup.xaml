@@ -86,7 +86,6 @@
         <TextBox TextWrapping="Wrap" Text="ID" Width="204" Margin="0,96,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48" Style="{StaticResource textStyle1}" Panel.ZIndex="1"/>
         <TextBox TextWrapping="Wrap"  Text="PW" Width="204" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle2}" Panel.ZIndex="1"/>
         <TextBox TextWrapping="Wrap"  Text="PW" Width="204" Margin="296,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle2}" Panel.ZIndex="1"/>
-
         <Label Content="" Margin="171,44,174,105"  Style="{StaticResource BoxStyle1}"/>
         <Button x:Name="btn_login" Style="{StaticResource ButtonStyle1}" Width="204" Height="52" Margin="296,290,300,108" Click="btn_login_Click"  />
         <Image Height="100" Margin="172,350,172,0" Source="/Resources/p06020100_03.gif" RenderTransformOrigin="0.505,0.693">
@@ -95,6 +94,5 @@
         <TextBox x:Name="MyTextBoxid" Text="ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,98,300,307" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxid_GotFocus" LostFocus="MyTextBoxid_LostFocus"/>
         <TextBox x:Name="MyTextBoxpw" Text="PassWord" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,172,300,233" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxpw_GotFocus" LostFocus="MyTextBoxpw_LostFocus" />
         <TextBox x:Name="MyTextBoxname" Text="Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="298,239,302,166" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxname_GotFocus" LostFocus="MyTextBoxname_LostFocus" />
-
     </Grid>
 </Page>

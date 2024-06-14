@@ -36,21 +36,8 @@ namespace testproject
 
                 TcpClient client = new TcpClient("10.10.21.111", 5558); //연결객체
                 NetworkStream stream = client.GetStream(); //데이터 전송에 사용된 스트림
-                //string message = "Hello from test";
 
                 string send_msg;
-                //data = Encoding.ASCII.GetBytes(aaaa[0]);
-                //Console.WriteLine("-----");
-                //Console.WriteLine(data);
-                //Console.WriteLine("-----");
-                //stream.Write(data, 0, data.Length);//전송할 데이터의 바이트 배열, 전송을 시작할 배열의 인덱스, 전송할 데이터의 길이.
-                //send_msg = "_for_abc_signup_";
-                //data = null;
-                //data = Encoding.UTF8.GetBytes(send_msg);
-                ////txtbox_chat1.Text += send_msg;
-                //stream.Write(data, 0, data.Length);//전송할 데이터의 바이트 배열, 전송을 시작할 배열의 인덱스, 전송할 데이터의 길이.
-                //txtbox_chat1.Text += Encoding.UTF8.GetString(data);
-                //send_msg = "";
 
                 // 회원가입 플래그 보내기 
 
@@ -90,19 +77,9 @@ namespace testproject
                 int bytes = stream.Read(data, 0, data.Length);//받는 데이터의 바이트배열, 인덱스, 길이
                 string responses = Encoding.UTF8.GetString(data, 0, bytes);
                 MessageBox.Show(responses);
-                //txtbox_chat1.Text += ("Received: " + responses + "\n");
-                //bytes = stream.Read(data, 0, data.Length);//받는 데이터의 바이트배열, 인덱스, 길이
-                //responses = Encoding.UTF8.GetString(data, 0, bytes);
-                //txtbox_chat1.Text += ("Received: " + responses + "\n");
-                //bytes = stream.Read(data, 0, data.Length);//받는 데이터의 바이트배열, 인덱스, 길이
-                //responses = Encoding.UTF8.GetString(data, 0, bytes);
-                //txtbox_chat1.Text += ("Received: " + responses + "\n");
-                //bytes = stream.Read(data, 0, data.Length);//받는 데이터의 바이트배열, 인덱스, 길이
-                //responses = Encoding.UTF8.GetString(data, 0, bytes);
-                //txtbox_chat1.Text += ("Received: " + responses + "\n");
 
-                stream.Close();
-                client.Close();
+                //stream.Close();
+                //client.Close();
 
             }
             catch (Exception e)

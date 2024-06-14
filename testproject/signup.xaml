@@ -20,14 +20,25 @@
                         <Border Background="{TemplateBinding Background}"   BorderThickness="2" BorderBrush="Black"  CornerRadius="3">
                             <ContentPresenter  HorizontalAlignment="Center"  VerticalAlignment="Center" Content="LogIn"/>
                         </Border>
-
                     </ControlTemplate>
-
                 </Setter.Value>
             </Setter>
-
-            <!--<Setter Property="Corner" Value="3"></Setter>-->
-
+        </Style>
+        <Style  x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="Background" Value="#09aa5c" ></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Content" Value="Login" ></Setter>
+            <Setter Property="FontSize" Value="15" ></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Template">
+                <Setter.Value >
+                    <ControlTemplate TargetType="Button" >
+                        <Border Background="{TemplateBinding Background}"   BorderThickness="2" BorderBrush="Black"  CornerRadius="3">
+                            <ContentPresenter  HorizontalAlignment="Center"   VerticalAlignment="Center" Content="종료"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style x:Key="BoxStyle1" TargetType="Label">
             <Setter Property="Template">
@@ -92,7 +103,7 @@
         <Label Content="상담원 로그인" Margin="358,60,358,359"/>
         <TextBox x:Name="MyTextBoxid" Text="ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,98,300,307" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxid_GotFocus" LostFocus="MyTextBoxid_LostFocus" />
         <TextBox x:Name="MyTextBoxpw" Text="PassWord" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,172,300,233" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxpw_GotFocus" LostFocus="MyTextBoxpw_LostFocus"/>
-        <Button Content="Button" Margin="154,349,561,50" Click="Button_Click"/>
+        <Button x:Name="btn_close" Style="{StaticResource ButtonStyle2}" Content="Button" Margin="572,56,185,368" Click="Button_Click" Panel.ZIndex="2" />
 
     </Grid>
 </Page>

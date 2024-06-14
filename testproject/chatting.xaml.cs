@@ -24,12 +24,9 @@ namespace testproject
         public chatting()
         {
             InitializeComponent();
-            signup signup = new signup();
+
             
         }
-        public chatting(NetworkStream stream):this()
-        {
 
-        }
     }
 }

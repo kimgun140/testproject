@@ -62,6 +62,9 @@
     <Compile Include="chatting.xaml.cs">
       <DependentUpon>chatting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="close_button.xaml.cs">
+      <DependentUpon>close_button.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login1.xaml.cs">
       <DependentUpon>Login1.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="chatting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="close_button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
