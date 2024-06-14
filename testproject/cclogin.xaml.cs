@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,19 +16,13 @@ using System.Windows.Shapes;
 namespace testproject
 {
     /// <summary>
-    /// chatting.xaml에 대한 상호 작용 논리
+    /// cclogin.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class chatting : Page
+    public partial class cclogin : Page
     {
-        public chatting()
+        public cclogin()
         {
             InitializeComponent();
-            signup signup = new signup();
-            
-        }
-        public chatting(NetworkStream stream):this()
-        {
-
         }
     }
 }

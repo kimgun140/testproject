@@ -1,4 +1,4 @@
-﻿<Page x:Class="testproject.signup"
+﻿<Page x:Class="testproject.real_signup"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:testproject"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="signup">
+      Title="real_signup">
+
 
     <Page.Resources >
         <Style x:Name="ty1" x:Key="ButtonStyle1" TargetType="Button">
@@ -18,7 +19,7 @@
                 <Setter.Value >
                     <ControlTemplate TargetType="Button" >
                         <Border Background="{TemplateBinding Background}"   BorderThickness="2" BorderBrush="Black"  CornerRadius="3">
-                            <ContentPresenter  HorizontalAlignment="Center"  VerticalAlignment="Center" Content="LogIn"/>
+                            <ContentPresenter  HorizontalAlignment="Center"  VerticalAlignment="Center" Content="회원가입"/>
                         </Border>
 
                     </ControlTemplate>
@@ -84,15 +85,16 @@
     <Grid Width="800" Height="450" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFF">
         <TextBox TextWrapping="Wrap" Text="ID" Width="204" Margin="0,96,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48" Style="{StaticResource textStyle1}" Panel.ZIndex="1"/>
         <TextBox TextWrapping="Wrap"  Text="PW" Width="204" Margin="0,170,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle2}" Panel.ZIndex="1"/>
+        <TextBox TextWrapping="Wrap"  Text="PW" Width="204" Margin="296,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48"  Style="{StaticResource textStyle2}" Panel.ZIndex="1"/>
 
-        <Label Content="" Width="458" Height="257" Margin="171,44,171,149"  Style="{StaticResource BoxStyle1}"/>
-        <Button x:Name="btn_login" Style="{StaticResource ButtonStyle1}" Width="204" Height="52" Margin="298,234,298,164" Click="btn_login_Click"  />
+        <Label Content="" Margin="171,44,174,105"  Style="{StaticResource BoxStyle1}"/>
+        <Button x:Name="btn_login" Style="{StaticResource ButtonStyle1}" Width="204" Height="52" Margin="296,290,300,108" Click="btn_login_Click"  />
         <Image Height="100" Margin="172,350,172,0" Source="/Resources/p06020100_03.gif" RenderTransformOrigin="0.505,0.693">
         </Image>
-        <Label Content="상담원 로그인" Margin="358,60,358,359"/>
-        <TextBox x:Name="MyTextBoxid" Text="ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,98,300,307" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxid_GotFocus" LostFocus="MyTextBoxid_LostFocus" />
-        <TextBox x:Name="MyTextBoxpw" Text="PassWord" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,172,300,233" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxpw_GotFocus" LostFocus="MyTextBoxpw_LostFocus"/>
-        <Button Content="Button" Margin="154,349,561,50" Click="Button_Click"/>
+        <Label Content="회원가입" Margin="358,53,346,359" FontSize="20"/>
+        <TextBox x:Name="MyTextBoxid" Text="ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,98,300,307" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxid_GotFocus" LostFocus="MyTextBoxid_LostFocus"/>
+        <TextBox x:Name="MyTextBoxpw" Text="PassWord" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="300,172,300,233" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxpw_GotFocus" LostFocus="MyTextBoxpw_LostFocus" />
+        <TextBox x:Name="MyTextBoxname" Text="Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="298,239,302,166" BorderThickness="0" Panel.ZIndex="2" Width="200" Height="45" GotFocus="MyTextBoxname_GotFocus" LostFocus="MyTextBoxname_LostFocus" />
 
     </Grid>
 </Page>

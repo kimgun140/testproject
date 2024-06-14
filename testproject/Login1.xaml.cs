@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -19,21 +18,15 @@ using System.Windows.Shapes;
 namespace testproject
 {
     /// <summary>
-    /// signup.xaml에 대한 상호 작용 논리
+    /// Login1.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class signup : Page
+    public partial class Login1 : Page
     {
-        //TcpClient client = new TcpClient("10.10.21.111", 5558); //연결객체
-
-        public signup()
+        public Login1()
         {
             InitializeComponent();
-            //TcpClient client = new TcpClient("10.10.21.111", 5558); //연결객체
-
-
         }
-
-        public int CS_login(string id, string pw) // 상담원 로그인 
+        public int CC_login(string id, string pw) // 고객  로그인 
         {
             try
             {
@@ -43,15 +36,14 @@ namespace testproject
                 TcpClient client = new TcpClient("10.10.21.111", 5558); //연결객체
                 NetworkStream stream = client.GetStream(); //데이터 전송에 사용된 스트림
 
-               //stream.WriteAsync(data, 0, data.Length);
 
                 string send_msg;
 
-                // 상담원 로그인 플래그 보내기 
+                // 회원가입 플래그 보내기 
 
                 data = null;
                 data = new byte[256];
-                send_msg = "_for_cs_login_";// 시그널
+                send_msg = "_for_cc_login_";// 시그널
                 data = Encoding.UTF8.GetBytes(send_msg);
                 stream.Write(data, 0, data.Length);//전송할 데이터의 바이트 배열, 전송을 시작할 배열의 인덱스, 전송할 데이터의 길이.
 
@@ -86,10 +78,14 @@ namespace testproject
                 MessageBox.Show(responses);
                 if (responses == "로그인 되었습니다.\n")
                 {
+                    //NavigationService.Navigate(
+                    //new Uri("/chatting.xaml", UriKind.Relative));
                     MessageBox.Show("responses");
                     NavigationService.Navigate(
                     new Uri("/chatting.xaml", UriKind.Relative));
                     return 1;
+
+
                 }
 
                 stream.Close();
@@ -103,28 +99,25 @@ namespace testproject
                 return -1;
             }
         }
+        private void btn_signup_Click(object sender, RoutedEventArgs e)
+            // 회원가입창으로 이동 
+        {
+            NavigationService.Navigate(
+                        new Uri("/realsignup.xaml", UriKind.Relative));
+        }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-
-            string pw = MyTextBoxpw.Text.ToUpper();
-            string id = MyTextBoxid.Text.ToUpper();
-
-            int qqwwee = CS_login(id, pw);
-            // 로그인 성공하면 채팅창으로 넘어감 
-
+            string ccid = MyTextBoxid.Text.ToUpper(); // 대문자로 변환 
+            string ccpw = MyTextBoxpw.Text.ToUpper();// 대문자로 변환 
+            CC_login(ccid,ccpw);
             MyTextBoxid.Clear();
             MyTextBoxpw.Clear();
-            //if (qqwwee == 1)
-            //{
-            //    NavigationService.Navigate(
-            //    new Uri("/chatting.xaml", UriKind.Relative));
-            //}
         }
 
         private void MyTextBoxid_GotFocus(object sender, RoutedEventArgs e)
         {
-           if( MyTextBoxid.Text == "ID")
+            if (MyTextBoxid.Text == "ID")
             {
                 MyTextBoxid.Clear();
             }
@@ -132,32 +125,26 @@ namespace testproject
 
         private void MyTextBoxpw_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (MyTextBoxpw.Text == "PassWord")
+            if(MyTextBoxpw.Text == "PassWord")
             {
                 MyTextBoxpw.Clear();
             }
         }
 
+        private void MyTextBoxpw_LostFocus(object sender, RoutedEventArgs e)
+        {
+             if (MyTextBoxpw.Text == "")
+            {
+                MyTextBoxpw.Text = "Password";
+            }
+        }
+
         private void MyTextBoxid_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(MyTextBoxid.Text == "")
+             if (MyTextBoxid.Text == "")
             {
                 MyTextBoxid.Text = "ID";
             }
-        }
-
-        private void MyTextBoxpw_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(MyTextBoxpw.Text == "")
-            {
-                MyTextBoxpw.Text = "PassWord";
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //chatting chatting = new chatting(Stream);
-
         }
     }
 }
